@@ -25,12 +25,13 @@ fun roundFloorDecimal(number: Double): Double {
 }
 
 fun listOfGenres(genres: List<GenresItem>): String {
-    if (genres.size == 1) {
-        return genres[0].name
+    return if (genres.size == 1) {
+        genres[0].name
+    } else {
+        val sb = StringBuilder()
+        for (genre in genres) {
+            sb.append("${genre.name}, ")
+        }
+        sb.toString().substring(0, sb.toString().length - 2)
     }
-    val sb = StringBuilder()
-    for (genre in genres) {
-        sb.append("${genre.name}, ")
-    }
-    return sb.toString()
 }
