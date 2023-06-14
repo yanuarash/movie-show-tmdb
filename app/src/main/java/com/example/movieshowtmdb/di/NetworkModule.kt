@@ -1,6 +1,6 @@
-package com.example.kotlintesttmdb.di
+package com.example.movieshowtmdb.di
 
-import com.example.kotlintesttmdb.network.ApiService
+import com.example.movieshowtmdb.networking.ApiService
 import com.example.movieshowtmdb.util.Constants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

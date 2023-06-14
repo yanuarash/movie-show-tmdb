@@ -1,6 +1,6 @@
-package com.example.kotlintesttmdb.network.repo
+package com.example.movieshowtmdb.modules.movies_videos.repo
 
-import com.example.kotlintesttmdb.models.MoviesVideos
+import com.example.movieshowtmdb.modules.movies_videos.models.MoviesVideos
 
 interface MoviesVideosRepo {
     suspend fun getMoviesVideos(movieId: Int): MoviesVideos

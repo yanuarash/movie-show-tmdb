@@ -1,4 +1,4 @@
-package com.example.kotlintesttmdb.network
+package com.example.movieshowtmdb.networking
 
 import retrofit2.Response
 import java.io.IOException

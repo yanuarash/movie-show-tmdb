@@ -1,8 +1,8 @@
-package com.example.kotlintesttmdb.network.repo
+package com.example.movieshowtmdb.modules.movies_genre.repo
 
-import com.example.kotlintesttmdb.models.MoviesGenre
-import com.example.kotlintesttmdb.network.ApiRequest
-import com.example.kotlintesttmdb.network.ApiService
+import com.example.movieshowtmdb.modules.movies_genre.models.MoviesGenre
+import com.example.movieshowtmdb.networking.ApiRequest
+import com.example.movieshowtmdb.networking.ApiService
 
 class MoviesGenreRepoImpl constructor(private val apiService: ApiService) : MoviesGenreRepo,
     ApiRequest() {

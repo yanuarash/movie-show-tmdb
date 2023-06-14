@@ -1,8 +1,8 @@
 package com.example.movieshowtmdb.modules.movies_detail.usecase
 
-import com.example.kotlintesttmdb.network.Resource
-import com.example.kotlintesttmdb.network.repo.MoviesDetailRepo
 import com.example.movieshowtmdb.modules.movies_detail.models.MoviesDetail
+import com.example.movieshowtmdb.modules.movies_detail.repo.MoviesDetailRepo
+import com.example.movieshowtmdb.networking.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException

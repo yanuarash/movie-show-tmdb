@@ -10,7 +10,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import com.example.kotlintesttmdb.pages.NavigationPages
+import com.example.movieshowtmdb.navigation.NavigationPages
 import com.example.movieshowtmdb.ui.theme.MovieShowTMDBTheme
 
 @OptIn(ExperimentalMaterial3Api::class)

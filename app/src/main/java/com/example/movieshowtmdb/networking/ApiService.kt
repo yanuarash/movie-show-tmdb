@@ -1,7 +1,11 @@
-package com.example.kotlintesttmdb.network
+package com.example.movieshowtmdb.networking
 
 import com.example.kotlintesttmdb.models.*
+import com.example.movieshowtmdb.modules.home.models.Genres
 import com.example.movieshowtmdb.modules.movies_detail.models.MoviesDetail
+import com.example.movieshowtmdb.modules.movies_genre.models.MoviesGenre
+import com.example.movieshowtmdb.modules.movies_reviews.models.MoviesReviews
+import com.example.movieshowtmdb.modules.movies_videos.models.MoviesVideos
 import com.example.movieshowtmdb.util.Constants
 import retrofit2.Response
 import retrofit2.http.GET

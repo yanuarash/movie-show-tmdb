@@ -1,4 +1,4 @@
-package com.example.kotlintesttmdb.pages
+package com.example.movieshowtmdb.navigation
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -8,7 +8,6 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.example.kotlintesttmdb.navigation.NavigationItem
 import com.example.movieshowtmdb.modules.home.pages.Home
 import com.example.movieshowtmdb.modules.movies_detail.pages.MoviesDetail
 import com.example.movieshowtmdb.modules.movies_genre.pages.MoviesGenre

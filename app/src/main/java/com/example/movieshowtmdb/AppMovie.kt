@@ -1,9 +1,9 @@
 package com.example.movieshowtmdb
 
 import android.app.Application
-import com.example.kotlintesttmdb.di.networkModule
 import com.example.kotlintesttmdb.di.repoModule
 import com.example.kotlintesttmdb.di.viewModelModule
+import com.example.movieshowtmdb.di.networkModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin

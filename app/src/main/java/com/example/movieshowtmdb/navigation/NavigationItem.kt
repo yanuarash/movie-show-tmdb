@@ -1,4 +1,4 @@
-package com.example.kotlintesttmdb.navigation
+package com.example.movieshowtmdb.navigation
 
 sealed class NavigationItem(var route: String, var title: String) {
     object Home : NavigationItem("home", "Home")

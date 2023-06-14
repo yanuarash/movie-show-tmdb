@@ -1,13 +1,13 @@
-package com.example.kotlintesttmdb.pages.movies_genre
+package com.example.movieshowtmdb.modules.movies_genre.viewmodel
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.kotlintesttmdb.models.MoviesGenreItem
-import com.example.kotlintesttmdb.network.Resource
+import com.example.movieshowtmdb.modules.movies_genre.models.MoviesGenreItem
 import com.example.movieshowtmdb.modules.movies_genre.usecase.MoviesGenreUseCase
+import com.example.movieshowtmdb.networking.Resource
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
