@@ -25,6 +25,7 @@ import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.kotlintesttmdb.pages.movies_detail.MoviesDetailViewModel
+import com.example.movieshowtmdb.modules.movies_videos.pages.MoviesVideos
 import com.example.movieshowtmdb.util.Constants
 import org.koin.androidx.compose.getViewModel
 
@@ -96,6 +97,7 @@ fun MoviesDetail(
                         fontSize = 20.sp,
                         modifier = Modifier.padding(start = 8.dp, top = 8.dp)
                     )
+                    MoviesVideos(movieId = movieId)
                     Divider(
                         color = Color.DarkGray, modifier = Modifier
                             .fillMaxWidth()
