@@ -1,6 +1,9 @@
 package com.example.movieshowtmdb.modules.movies_detail.pages
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -31,6 +34,10 @@ import coil.request.ImageRequest
 import com.example.movieshowtmdb.modules.movies_detail.viewmodel.MoviesDetailViewModel
 import com.example.movieshowtmdb.modules.movies_videos.pages.MoviesVideos
 import com.example.movieshowtmdb.util.Constants
+import com.example.movieshowtmdb.util.listOfGenres
+import com.example.movieshowtmdb.util.roundFloorDecimal
+import com.example.movieshowtmdb.util.showMovieDate
+import com.example.movieshowtmdb.util.showMovieYear
 import org.koin.androidx.compose.getViewModel
 
 @ExperimentalMaterial3Api
@@ -69,14 +76,18 @@ fun MoviesDetail(
                         modifier = Modifier
                             .padding(all = 10.dp)
                             .fillMaxWidth()
-                            .align(Alignment.CenterHorizontally)
+                            .align(Alignment.CenterHorizontally),
+                        verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-                        Text(
-                            text = moviesDetail.title,
-                            fontWeight = FontWeight.Bold,
-                            fontSize = 20.sp,
-                            textAlign = TextAlign.Center
-                        )
+                        Row() {
+                            Text(
+                                text = "${moviesDetail.title} | ${showMovieYear(moviesDetail.release_date)}",
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 16.sp,
+                                textAlign = TextAlign.Center
+                            )
+                        }
                         if (!moviesDetail.tagline.isEmpty()) {
                             Text(
                                 text = moviesDetail.tagline,
@@ -85,8 +96,8 @@ fun MoviesDetail(
                             )
                         }
                         Text(
-                            text = "✪${moviesDetail.vote_average}",
-                            color = Color.LightGray,
+                            text = "✪${roundFloorDecimal(moviesDetail.vote_average.toDouble())}",
+                            color = Color.DarkGray,
                             textAlign = TextAlign.Center
                         )
                     }
@@ -98,7 +109,7 @@ fun MoviesDetail(
                     Text(
                         text = "Youtube Videos",
                         fontWeight = FontWeight.Bold,
-                        fontSize = 20.sp,
+                        fontSize = 16.sp,
                         modifier = Modifier.padding(start = 8.dp, top = 8.dp)
                     )
                     MoviesVideos(movieId = movieId)
@@ -108,8 +119,37 @@ fun MoviesDetail(
                             .width(1.dp)
                     )
                     Column(modifier = Modifier.padding(all = 8.dp)) {
-                        Text(text = "Overview", fontWeight = FontWeight.Bold, fontSize = 20.sp)
-                        Text(text = moviesDetail.overview)
+                        Row() {
+                            Column(modifier = Modifier
+                                .fillMaxWidth()
+                                .weight(1f)) {
+                                Text(
+                                    text = "Genres",
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 16.sp
+                                )
+                                Text(text = listOfGenres(moviesDetail.genres), fontSize = 14.sp)
+                            }
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Column(modifier = Modifier
+                                .fillMaxWidth()
+                                .weight(1f)) {
+                                Text(
+                                    text = "Release Date",
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 16.sp
+                                )
+                                showMovieDate(moviesDetail.release_date)?.let {
+                                    Text(
+                                        text = it,
+                                        fontSize = 14.sp
+                                    )
+                                }
+                            }
+                        }
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Text(text = "Overview", fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                        Text(text = moviesDetail.overview, fontSize = 14.sp)
                     }
                 }
                 Button(

@@ -88,21 +88,21 @@ fun MoviesGenre(
                         items(movieGenreList) { item ->
                             Card(modifier = Modifier
                                 .fillMaxWidth()
-                                .height(200.dp)
                                 .padding(8.dp)
                                 .clickable {
                                     navHostController.navigate("moviesDetail/${item.id}")
                                 }) {
-
-                                Box {
+                                Box(
+                                    modifier = Modifier
+                                        .height(200.dp)
+                                        .fillMaxWidth()
+                                ) {
                                     AsyncImage(
                                         model = ImageRequest.Builder(LocalContext.current)
                                             .data(Constants.IMAGE_W1280_URL + item.backdrop_path)
-                                            .crossfade(true)
-                                            .build(),
+                                            .crossfade(true).build(),
                                         contentDescription = "Movie Image",
-                                        modifier = Modifier
-                                            .fillMaxSize(),
+                                        modifier = Modifier.fillMaxSize(),
                                         contentScale = ContentScale.Crop,
                                     )
                                     Column {
@@ -111,20 +111,30 @@ fun MoviesGenre(
                                             .background(
                                                 Brush.verticalGradient(
                                                     listOf(
-                                                        Color.Transparent,
-                                                        Color.Black
-                                                    ),
-                                                    0f,
-                                                    500f
+                                                        Color.Transparent, Color.Black
+                                                    ), 0f, 500f
                                                 )
                                             )
                                     }
-                                    Text(
-                                        text = item.title,
+                                    Box(
                                         modifier = Modifier
-                                            .align(Alignment.BottomStart)
-                                            .padding(all = 8.dp)
-                                    )
+                                            .background(
+                                                brush = Brush.verticalGradient(
+                                                    colors = listOf(
+                                                        Color.Transparent,
+                                                        Color.Black,
+                                                    ), 0f, 1000f
+                                                )
+                                            )
+                                            .fillMaxSize()
+                                    ) {
+                                        Text(
+                                            text = item.title,
+                                            modifier = Modifier
+                                                .align(Alignment.BottomStart)
+                                                .padding(all = 8.dp), color = Color.White
+                                        )
+                                    }
                                 }
                             }
                         }
