@@ -4,7 +4,8 @@ import com.example.kotlintesttmdb.models.MoviesGenre
 import com.example.kotlintesttmdb.network.ApiRequest
 import com.example.kotlintesttmdb.network.ApiService
 
-class MoviesGenreRepoImpl constructor(private val apiService: ApiService): MoviesGenreRepo, ApiRequest(){
+class MoviesGenreRepoImpl constructor(private val apiService: ApiService) : MoviesGenreRepo,
+    ApiRequest() {
 
     override suspend fun getMoviesGenre(page: Int, withGenres: String): MoviesGenre {
         return apiRequest {
