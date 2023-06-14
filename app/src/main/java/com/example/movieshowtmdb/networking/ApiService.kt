@@ -1,6 +1,5 @@
 package com.example.movieshowtmdb.networking
 
-import com.example.kotlintesttmdb.models.*
 import com.example.movieshowtmdb.modules.home.models.Genres
 import com.example.movieshowtmdb.modules.movies_detail.models.MoviesDetail
 import com.example.movieshowtmdb.modules.movies_genre.models.MoviesGenre
