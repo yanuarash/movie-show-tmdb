@@ -2,6 +2,7 @@ package com.example.movieshowtmdb.modules.movies_genre.pages
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -9,13 +10,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Card
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Snackbar
@@ -49,6 +48,7 @@ import org.koin.androidx.compose.getViewModel
 fun MoviesGenre(
     viewModel: MoviesGenreViewModel = getViewModel(),
     withGenres: String,
+    nameGenre: String,
     navHostController: NavHostController,
 ) {
     var page by rememberSaveable { mutableStateOf(0) }
@@ -76,11 +76,20 @@ fun MoviesGenre(
     }
 
     Scaffold(topBar = {
-        TopAppBar(title = { Text(text = "Movies Genre") })
+        TopAppBar(title = { Text(text = nameGenre) })
     }) { paddingValues ->
-        Box(modifier = Modifier.padding(paddingValues)) {
+        Box(
+            modifier = Modifier
+                .padding(paddingValues)
+                .fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
             if (movieGenreList.size > 0) {
-                Column {
+                Column(
+                    modifier = Modifier.fillMaxSize(),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
                     LazyColumn(
                         modifier = Modifier.weight(1F),
                         contentPadding = PaddingValues(horizontal = 8.dp, vertical = 6.dp),
@@ -133,21 +142,16 @@ fun MoviesGenre(
                                             text = item.title,
                                             modifier = Modifier
                                                 .align(Alignment.BottomStart)
-                                                .padding(all = 8.dp), color = Color.White
+                                                .padding(all = 8.dp),
+                                            color = Color.White
                                         )
                                     }
                                 }
                             }
                         }
                     }
-                    if (movieGenreState.isLoading) {
-                        CircularProgressIndicator(
-                            modifier = Modifier
-                                .size(size = 40.dp)
-                                .padding(all = 8.dp),
-                            color = Color.Magenta,
-                            strokeWidth = 6.dp
-                        )
+                    if (movieGenreState.isLoading && page > 1) {
+                        CircularLoading()
                     }
                 }
             } else if (movieGenreState.error.isNotEmpty()) {

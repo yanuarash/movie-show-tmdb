@@ -24,10 +24,18 @@ fun NavigationPages(navHostController: NavHostController) {
 
         composable(
             NavigationItem.MoviesGenre.route,
-            arguments = listOf(navArgument("withGenres") { type = NavType.StringType })
+            arguments = listOf(
+                navArgument("withGenres") { type = NavType.StringType },
+                navArgument("nameGenre") { type = NavType.StringType })
         ) {
             val withGenres = it.arguments?.getString("withGenres")
-            MoviesGenre(withGenres = withGenres!!, navHostController = navHostController)
+            val nameGenre = it.arguments?.getString("nameGenre")
+
+            MoviesGenre(
+                withGenres = withGenres!!,
+                nameGenre = nameGenre!!,
+                navHostController = navHostController
+            )
         }
 
         composable(

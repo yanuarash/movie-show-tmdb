@@ -60,7 +60,7 @@ fun Home(viewModel: HomeViewModel = getViewModel(), navHostController: NavHostCo
                                     .padding(8.dp)
                                     .height(90.dp)
                                     .clickable {
-                                        navHostController.navigate("moviesGenre/${item.id}")
+                                        navHostController.navigate("moviesGenre/${item.id}/${item.name}")
                                     }) {
                                 Text(
                                     text = item.name,
