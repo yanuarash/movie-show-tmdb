@@ -10,6 +10,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.example.kotlintesttmdb.navigation.NavigationItem
 import com.example.movieshowtmdb.modules.home.pages.Home
+import com.example.movieshowtmdb.modules.movies_detail.pages.MoviesDetail
 import com.example.movieshowtmdb.modules.movies_genre.pages.MoviesGenre
 
 @ExperimentalMaterial3Api
@@ -24,6 +25,11 @@ fun NavigationPages(navHostController: NavHostController){
         composable(NavigationItem.MoviesGenre.route, arguments = listOf(navArgument("withGenres"){type = NavType.StringType})){
             val withGenres  = it.arguments?.getString("withGenres")
             MoviesGenre(withGenres = withGenres!!, navHostController = navHostController)
+        }
+
+        composable(NavigationItem.MoviesDetail.route, arguments = listOf(navArgument("movieId"){type = NavType.StringType})){
+            val movieId  = it.arguments?.getString("movieId")?.toInt()
+            MoviesDetail(movieId = movieId!!, navHostController = navHostController)
         }
     }
 }
