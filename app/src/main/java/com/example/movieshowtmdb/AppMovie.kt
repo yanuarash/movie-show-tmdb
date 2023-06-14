@@ -14,7 +14,7 @@ class AppMovie : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        val modules = listOf(networkModule, viewModelModule, repoModule);
+        val modules = listOf(networkModule, viewModelModule, repoModule)
 
         startKoin{
             androidLogger(level = Level.NONE)

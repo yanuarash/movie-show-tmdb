@@ -36,7 +36,7 @@ fun MoviesVideos(
         viewModel.getMoviesVideos(movieId)
     }
 
-    Column() {
+    Column {
         if (reviewsList != null) {
             LazyRow(contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp)) {
                 items(reviewsList) { item ->
@@ -51,7 +51,7 @@ fun MoviesVideos(
                                 containerColor = Color.DarkGray,
                             )
                         ) {
-                            Box() {
+                            Box {
                                 AsyncImage(
                                     model = ImageRequest.Builder(LocalContext.current)
                                         .data(Constants.YOUTUBE_THUMBNAIL + item.key + Constants.YOUTUBE_THUMBNAIL_RES)

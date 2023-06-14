@@ -34,7 +34,7 @@ fun Home(viewModel: HomeViewModel = getViewModel(), navHostController: NavHostCo
     }) { paddingValues ->
         Box(modifier = Modifier.padding(paddingValues)) {
             if (genreList != null) {
-                Column() {
+                Column {
                     LazyVerticalGrid(
                         columns = GridCells.Fixed(2)
                     ) {
@@ -59,7 +59,7 @@ fun Home(viewModel: HomeViewModel = getViewModel(), navHostController: NavHostCo
                     }
                 }
             } else {
-                Snackbar() {
+                Snackbar {
                     Text(text = "Error Fetching Data")
                 }
             }

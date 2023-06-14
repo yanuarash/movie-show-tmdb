@@ -69,7 +69,7 @@ fun MoviesReviews(
                     }
                 }
             } else {
-                Snackbar() {
+                Snackbar {
                     Text(text = "Error Fetching Data")
                 }
             }

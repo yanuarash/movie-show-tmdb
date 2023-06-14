@@ -10,7 +10,7 @@ abstract class ApiRequest {
             return response.body()!!
         }else{
             val err = response.errorBody()?.string()
-            throw IOException(err);
+            throw IOException(err)
         }
 
     }

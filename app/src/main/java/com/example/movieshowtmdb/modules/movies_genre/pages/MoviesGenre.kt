@@ -72,7 +72,7 @@ fun MoviesGenre(
     }) { paddingValues ->
         Box(modifier = Modifier.padding(paddingValues)) {
             if (movieGenreList.size > 0) {
-                Column() {
+                Column {
                     LazyColumn(
                         modifier = Modifier.weight(1F),
                         contentPadding = PaddingValues(horizontal = 8.dp, vertical = 6.dp),
@@ -87,7 +87,7 @@ fun MoviesGenre(
                                     navHostController.navigate("moviesDetail/${item.id}")
                                 }) {
 
-                                Box() {
+                                Box {
                                     AsyncImage(
                                         model = ImageRequest.Builder(LocalContext.current)
                                             .data(Constants.IMAGE_W1280_URL + item.backdrop_path)
@@ -98,7 +98,7 @@ fun MoviesGenre(
                                             .fillMaxSize(),
                                         contentScale = ContentScale.Crop,
                                     )
-                                    Column() {
+                                    Column {
                                         Modifier
                                             .fillMaxSize()
                                             .background(
@@ -133,7 +133,7 @@ fun MoviesGenre(
                     }
                 }
             } else if (movieGenreState.error.isNotEmpty()) {
-                Snackbar() {
+                Snackbar {
                     Text(text = movieGenreState.error)
                 }
             } else {

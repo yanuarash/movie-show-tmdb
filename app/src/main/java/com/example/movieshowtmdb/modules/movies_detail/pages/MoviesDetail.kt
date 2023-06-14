@@ -43,14 +43,14 @@ fun MoviesDetail(
         viewModel.getMoviesDetail(movieId)
     }
 
-    Scaffold() { paddingValues ->
+    Scaffold { paddingValues ->
         Column(
             modifier = Modifier
                 .padding(paddingValues)
                 .verticalScroll(rememberScrollState())
         ) {
             if (moviesDetail != null) {
-                Column() {
+                Column {
                     AsyncImage(
                         model = ImageRequest.Builder(LocalContext.current)
                             .data(Constants.IMAGE_W1280_URL + moviesDetail.backdrop_path)
@@ -116,7 +116,7 @@ fun MoviesDetail(
                     Text(text = "User Reviews(${moviesDetail.vote_average})")
                 }
             } else {
-                Snackbar() {
+                Snackbar {
                     Text(text = "Error Fetching Data")
                 }
             }
