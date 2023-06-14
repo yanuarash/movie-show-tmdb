@@ -1,4 +1,4 @@
-package com.example.kotlintesttmdb.models
+package com.example.movieshowtmdb.modules.movies_genre.models
 
 data class MoviesGenre(
     val page: Int,

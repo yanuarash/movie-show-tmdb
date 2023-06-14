@@ -23,7 +23,7 @@ import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.example.kotlintesttmdb.pages.movies_videos.MoviesVideosViewModel
+import com.example.movieshowtmdb.modules.movies_videos.viewmodel.MoviesVideosViewModel
 import com.example.movieshowtmdb.util.Constants
 import org.koin.androidx.compose.getViewModel
 

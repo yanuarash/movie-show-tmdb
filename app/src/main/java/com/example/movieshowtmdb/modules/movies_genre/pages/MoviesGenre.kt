@@ -39,7 +39,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.example.kotlintesttmdb.pages.movies_genre.MoviesGenreViewModel
+import com.example.movieshowtmdb.modules.movies_genre.viewmodel.MoviesGenreViewModel
 import com.example.movieshowtmdb.util.Constants
 import org.koin.androidx.compose.getViewModel
 

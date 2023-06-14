@@ -1,4 +1,4 @@
-package com.example.kotlintesttmdb.models
+package com.example.movieshowtmdb.modules.movies_reviews.models
 
 data class MoviesReviewsItem(
     val author: String,

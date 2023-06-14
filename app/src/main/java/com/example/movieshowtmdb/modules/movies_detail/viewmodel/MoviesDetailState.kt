@@ -1,4 +1,4 @@
-package com.example.kotlintesttmdb.pages.movies_detail
+package com.example.movieshowtmdb.modules.movies_detail.viewmodel
 
 import com.example.movieshowtmdb.modules.movies_detail.models.MoviesDetail
 

@@ -1,6 +1,6 @@
 package com.example.movieshowtmdb.modules.movies_detail.models
 
-import com.example.kotlintesttmdb.models.Genres
+import com.example.movieshowtmdb.modules.home.models.Genres
 
 data class MoviesDetail(
     val backdrop_path: String,

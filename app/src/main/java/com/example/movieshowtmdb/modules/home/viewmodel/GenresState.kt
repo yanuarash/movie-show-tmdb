@@ -1,6 +1,6 @@
 package com.example.movieshowtmdb.modules.home.viewmodel
 
-import com.example.kotlintesttmdb.models.Genres
+import com.example.movieshowtmdb.modules.home.models.Genres
 
 data class GenresState(
     val isLoading: Boolean = false,

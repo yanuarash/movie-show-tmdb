@@ -1,19 +1,19 @@
 package com.example.kotlintesttmdb.di
 
-import com.example.kotlintesttmdb.network.repo.MoviesDetailRepo
-import com.example.kotlintesttmdb.network.repo.MoviesDetailRepoImpl
-import com.example.kotlintesttmdb.network.repo.MoviesGenreRepo
-import com.example.kotlintesttmdb.network.repo.MoviesGenreRepoImpl
-import com.example.kotlintesttmdb.network.repo.MoviesReviewsRepo
-import com.example.kotlintesttmdb.network.repo.MoviesReviewsRepoImpl
-import com.example.kotlintesttmdb.network.repo.MoviesVideosRepo
-import com.example.kotlintesttmdb.network.repo.MoviesVideosRepoImpl
 import com.example.movieshowtmdb.modules.home.repo.GenreRepoImpl
 import com.example.movieshowtmdb.modules.home.repo.GenresRepo
 import com.example.movieshowtmdb.modules.home.usecase.GenresUseCase
+import com.example.movieshowtmdb.modules.movies_detail.repo.MoviesDetailRepo
+import com.example.movieshowtmdb.modules.movies_detail.repo.MoviesDetailRepoImpl
 import com.example.movieshowtmdb.modules.movies_detail.usecase.MoviesDetailUseCase
+import com.example.movieshowtmdb.modules.movies_genre.repo.MoviesGenreRepo
+import com.example.movieshowtmdb.modules.movies_genre.repo.MoviesGenreRepoImpl
 import com.example.movieshowtmdb.modules.movies_genre.usecase.MoviesGenreUseCase
+import com.example.movieshowtmdb.modules.movies_reviews.repo.MoviesReviewsRepo
+import com.example.movieshowtmdb.modules.movies_reviews.repo.MoviesReviewsRepoImpl
 import com.example.movieshowtmdb.modules.movies_reviews.usecase.MoviesReviewsUseCase
+import com.example.movieshowtmdb.modules.movies_videos.repo.MoviesVideosRepo
+import com.example.movieshowtmdb.modules.movies_videos.repo.MoviesVideosRepoImpl
 import com.example.movieshowtmdb.modules.movies_videos.usecase.MoviesVideosUseCase
 import org.koin.dsl.module
 

@@ -1,10 +1,10 @@
 package com.example.kotlintesttmdb.di
 
-import com.example.kotlintesttmdb.pages.movies_detail.MoviesDetailViewModel
-import com.example.kotlintesttmdb.pages.movies_genre.MoviesGenreViewModel
-import com.example.kotlintesttmdb.pages.movies_reviews.MoviesReviewsViewModel
-import com.example.kotlintesttmdb.pages.movies_videos.MoviesVideosViewModel
 import com.example.movieshowtmdb.modules.home.viewmodel.HomeViewModel
+import com.example.movieshowtmdb.modules.movies_detail.viewmodel.MoviesDetailViewModel
+import com.example.movieshowtmdb.modules.movies_genre.viewmodel.MoviesGenreViewModel
+import com.example.movieshowtmdb.modules.movies_reviews.viewmodel.MoviesReviewsViewModel
+import com.example.movieshowtmdb.modules.movies_videos.viewmodel.MoviesVideosViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

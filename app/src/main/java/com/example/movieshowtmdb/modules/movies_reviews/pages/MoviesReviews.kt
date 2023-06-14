@@ -22,7 +22,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.kotlintesttmdb.pages.movies_reviews.MoviesReviewsViewModel
+import com.example.movieshowtmdb.modules.movies_reviews.viewmodel.MoviesReviewsViewModel
 import org.koin.androidx.compose.getViewModel
 
 @ExperimentalMaterial3Api

@@ -1,6 +1,6 @@
-package com.example.kotlintesttmdb.pages.movies_reviews
+package com.example.movieshowtmdb.modules.movies_reviews.viewmodel
 
-import com.example.kotlintesttmdb.models.MoviesReviews
+import com.example.movieshowtmdb.modules.movies_reviews.models.MoviesReviews
 
 data class MoviesReviewsState(
     val isLoading: Boolean = false,
