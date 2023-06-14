@@ -6,6 +6,8 @@ import com.example.kotlintesttmdb.network.repo.MoviesGenreRepo
 import com.example.kotlintesttmdb.network.repo.MoviesGenreRepoImpl
 import com.example.kotlintesttmdb.network.repo.MoviesReviewsRepo
 import com.example.kotlintesttmdb.network.repo.MoviesReviewsRepoImpl
+import com.example.kotlintesttmdb.network.repo.MoviesVideosRepo
+import com.example.kotlintesttmdb.network.repo.MoviesVideosRepoImpl
 import com.example.movieshowtmdb.modules.home.repo.GenreRepoImpl
 import com.example.movieshowtmdb.modules.home.repo.GenresRepo
 import com.example.movieshowtmdb.modules.home.usecase.GenresUseCase
@@ -23,4 +25,6 @@ val repoModule = module {
     single<MoviesDetailRepo> { MoviesDetailRepoImpl(get()) }
     single { MoviesReviewsUseCase(get()) }
     single<MoviesReviewsRepo> { MoviesReviewsRepoImpl(get()) }
+    single { MoviesVideosUseCase(get()) }
+    single<MoviesVideosRepo> { MoviesVideosRepoImpl(get()) }
 }
