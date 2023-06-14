@@ -46,7 +46,7 @@ fun Home(viewModel: HomeViewModel = getViewModel(), navHostController: NavHostCo
         ) {
             if (genresState.isLoading) {
                 CircularLoading()
-            } else if (genreList != null && !genresState.isLoading) {
+            } else if (genreList != null) {
                 Column {
                     LazyVerticalGrid(
                         columns = GridCells.Fixed(2)
