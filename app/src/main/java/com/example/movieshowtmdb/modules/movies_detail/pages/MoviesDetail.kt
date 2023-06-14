@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
+import com.example.movieshowtmdb.composable.CircularLoading
 import com.example.movieshowtmdb.modules.movies_detail.viewmodel.MoviesDetailViewModel
 import com.example.movieshowtmdb.modules.movies_videos.pages.MoviesVideos
 import com.example.movieshowtmdb.util.Constants
@@ -60,7 +61,9 @@ fun MoviesDetail(
                 .padding(paddingValues)
                 .verticalScroll(rememberScrollState())
         ) {
-            if (moviesDetail != null) {
+            if (moviesState.isLoading) {
+                CircularLoading()
+            } else if (moviesDetail != null) {
                 Column {
                     AsyncImage(
                         model = ImageRequest.Builder(LocalContext.current)
@@ -82,13 +85,13 @@ fun MoviesDetail(
                     ) {
                         Row() {
                             Text(
-                                text = "${moviesDetail.title} | ${showMovieYear(moviesDetail.release_date)}",
+                                text = "${moviesDetail.title}(${showMovieYear(moviesDetail.release_date)})",
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 16.sp,
                                 textAlign = TextAlign.Center
                             )
                         }
-                        if (!moviesDetail.tagline.isEmpty()) {
+                        if (moviesDetail.tagline.isNotEmpty()) {
                             Text(
                                 text = moviesDetail.tagline,
                                 color = Color.LightGray,
@@ -96,7 +99,7 @@ fun MoviesDetail(
                             )
                         }
                         Text(
-                            text = "✪${roundFloorDecimal(moviesDetail.vote_average.toDouble())}",
+                            text = "✪ ${roundFloorDecimal(moviesDetail.vote_average.toDouble())}",
                             color = Color.DarkGray,
                             textAlign = TextAlign.Center
                         )
@@ -120,20 +123,22 @@ fun MoviesDetail(
                     )
                     Column(modifier = Modifier.padding(all = 8.dp)) {
                         Row() {
-                            Column(modifier = Modifier
-                                .fillMaxWidth()
-                                .weight(1f)) {
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .weight(1f)
+                            ) {
                                 Text(
-                                    text = "Genres",
-                                    fontWeight = FontWeight.Bold,
-                                    fontSize = 16.sp
+                                    text = "Genres", fontWeight = FontWeight.Bold, fontSize = 16.sp
                                 )
                                 Text(text = listOfGenres(moviesDetail.genres), fontSize = 14.sp)
                             }
                             Spacer(modifier = Modifier.width(8.dp))
-                            Column(modifier = Modifier
-                                .fillMaxWidth()
-                                .weight(1f)) {
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .weight(1f)
+                            ) {
                                 Text(
                                     text = "Release Date",
                                     fontWeight = FontWeight.Bold,
@@ -141,21 +146,19 @@ fun MoviesDetail(
                                 )
                                 showMovieDate(moviesDetail.release_date)?.let {
                                     Text(
-                                        text = it,
-                                        fontSize = 14.sp
+                                        text = it, fontSize = 14.sp
                                     )
                                 }
                             }
                         }
-                        Spacer(modifier = Modifier.height(4.dp))
+                        Spacer(modifier = Modifier.height(8.dp))
                         Text(text = "Overview", fontWeight = FontWeight.Bold, fontSize = 16.sp)
                         Text(text = moviesDetail.overview, fontSize = 14.sp)
                     }
                 }
-                Button(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(all = 12.dp),
+                Button(modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(all = 8.dp),
                     onClick = { navHostController.navigate("moviesReviews/${moviesDetail.id}") }) {
                     Text(text = "User Reviews(${moviesDetail.vote_average})")
                 }
