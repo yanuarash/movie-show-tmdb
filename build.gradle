@@ -1,3 +1,14 @@
+buildscript {
+    ext {
+        compose_ui_version = '1.2.0'
+        koin_version = '3.4.0'
+        retrofit_version = '2.9.0'
+        okhttp_version = '4.10.0'
+        loggingIntercepter_version = '4.10.0'
+        coil_version = '2.3.0'
+    }
+}
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
     id 'com.android.application' version '8.0.2' apply false
