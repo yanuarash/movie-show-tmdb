@@ -16,7 +16,7 @@ class AppMovie : Application() {
 
         val modules = listOf(networkModule, viewModelModule, repoModule)
 
-        startKoin{
+        startKoin {
             androidLogger(level = Level.NONE)
             androidContext(this@AppMovie)
             modules(modules)

@@ -9,14 +9,15 @@ import com.example.movieshowtmdb.modules.movies_reviews.usecase.MoviesReviewsUse
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
-class MoviesReviewsViewModel constructor(private val moviesReviewsUseCase: MoviesReviewsUseCase) : ViewModel() {
+class MoviesReviewsViewModel constructor(private val moviesReviewsUseCase: MoviesReviewsUseCase) :
+    ViewModel() {
     private val _state = mutableStateOf(MoviesReviewsState())
     val state: State<MoviesReviewsState> = _state
 
-    fun getMoviesReviews(movieId: Int, page: Int){
+    fun getMoviesReviews(movieId: Int, page: Int) {
         val res = moviesReviewsUseCase.invoke(movieId, page)
         res.onEach { result ->
-            when(result){
+            when (result) {
                 is Resource.Loading -> {
                     _state.value = MoviesReviewsState(isLoading = true)
                 }
@@ -26,7 +27,8 @@ class MoviesReviewsViewModel constructor(private val moviesReviewsUseCase: Movie
                 }
 
                 is Resource.Error -> {
-                    _state.value = MoviesReviewsState(error = result.message ?: "error getting data")
+                    _state.value =
+                        MoviesReviewsState(error = result.message ?: "error getting data")
                 }
             }
         }.launchIn(viewModelScope)

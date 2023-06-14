@@ -9,14 +9,15 @@ import com.example.movieshowtmdb.modules.movies_videos.usecase.MoviesVideosUseCa
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
-class MoviesVideosViewModel constructor(private val moviesVideosUseCase: MoviesVideosUseCase) : ViewModel() {
+class MoviesVideosViewModel constructor(private val moviesVideosUseCase: MoviesVideosUseCase) :
+    ViewModel() {
     private val _state = mutableStateOf(MoviesVideosState())
     val state: State<MoviesVideosState> = _state
 
-    fun getMoviesVideos(movieId: Int){
+    fun getMoviesVideos(movieId: Int) {
         val res = moviesVideosUseCase.invoke(movieId)
         res.onEach { result ->
-            when(result){
+            when (result) {
                 is Resource.Loading -> {
                     _state.value = MoviesVideosState(isLoading = true)
                 }

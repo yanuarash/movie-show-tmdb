@@ -9,16 +9,14 @@ import retrofit2.HttpException
 import java.io.IOException
 
 class GenresUseCase constructor(private val genresRepo: GenresRepo) {
-    operator fun invoke(language: String): Flow<Resource<Genres>> = flow{
+    operator fun invoke(language: String): Flow<Resource<Genres>> = flow {
         try {
             emit(Resource.Loading())
             val res = genresRepo.getGenres(language)
             emit(Resource.Success(res))
-        }
-        catch (e: HttpException){
+        } catch (e: HttpException) {
             emit(Resource.Error(message = e.message.toString()))
-        }
-        catch (e: IOException){
+        } catch (e: IOException) {
             emit(Resource.Error(message = e.message.toString()))
         }
     }

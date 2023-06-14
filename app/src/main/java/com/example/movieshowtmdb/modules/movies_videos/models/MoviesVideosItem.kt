@@ -1,6 +1,6 @@
 package com.example.kotlintesttmdb.models
 
-data class MoviesVideosItem (
+data class MoviesVideosItem(
     val name: String,
     val key: String,
     val site: String,

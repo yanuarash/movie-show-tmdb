@@ -9,8 +9,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-val networkModule = module{
-    single{
+val networkModule = module {
+    single {
         Retrofit.Builder()
             .baseUrl(Constants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -20,7 +20,7 @@ val networkModule = module{
     }
 }
 
-fun provideOkhttp(): OkHttpClient{
+fun provideOkhttp(): OkHttpClient {
     return OkHttpClient.Builder()
         .addInterceptor(loggingInterceptor())
         .callTimeout(30, TimeUnit.SECONDS)
@@ -29,7 +29,7 @@ fun provideOkhttp(): OkHttpClient{
         .build()
 }
 
-fun loggingInterceptor(): HttpLoggingInterceptor{
+fun loggingInterceptor(): HttpLoggingInterceptor {
     return HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 }
 

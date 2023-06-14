@@ -17,10 +17,10 @@ class HomeViewModel constructor(private val genresUseCase: GenresUseCase) : View
         getGenres()
     }
 
-    private fun getGenres(){
+    private fun getGenres() {
         val res = genresUseCase.invoke("en-US")
         res.onEach { result ->
-            when(result){
+            when (result) {
                 is Resource.Loading -> {
                     _state.value = GenresState(isLoading = true)
                 }

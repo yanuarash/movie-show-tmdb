@@ -1,6 +1,6 @@
 package com.example.movieshowtmdb.util
 
-object Constants{
+object Constants {
     const val BASE_URL = "https://api.themoviedb.org/3/"
     const val API_KEY = "37543ba18b77d82e1164ae363641f2d9"
     const val IMAGE_W1280_URL = "https://image.tmdb.org/t/p/w1280/"

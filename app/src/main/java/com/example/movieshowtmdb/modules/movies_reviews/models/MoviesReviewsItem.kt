@@ -1,6 +1,6 @@
 package com.example.kotlintesttmdb.models
 
-data class MoviesReviewsItem (
+data class MoviesReviewsItem(
     val author: String,
     val content: String,
     val created_at: String,

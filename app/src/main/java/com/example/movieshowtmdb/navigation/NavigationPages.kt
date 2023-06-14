@@ -17,24 +17,33 @@ import com.example.movieshowtmdb.modules.movies_reviews.pages.MoviesReviews
 @ExperimentalMaterial3Api
 @ExperimentalFoundationApi
 @Composable
-fun NavigationPages(navHostController: NavHostController){
-    NavHost(navController = navHostController,  startDestination = NavigationItem.Home.route){
-        composable(NavigationItem.Home.route){
+fun NavigationPages(navHostController: NavHostController) {
+    NavHost(navController = navHostController, startDestination = NavigationItem.Home.route) {
+        composable(NavigationItem.Home.route) {
             Home(navHostController = navHostController)
         }
 
-        composable(NavigationItem.MoviesGenre.route, arguments = listOf(navArgument("withGenres"){type = NavType.StringType})){
-            val withGenres  = it.arguments?.getString("withGenres")
+        composable(
+            NavigationItem.MoviesGenre.route,
+            arguments = listOf(navArgument("withGenres") { type = NavType.StringType })
+        ) {
+            val withGenres = it.arguments?.getString("withGenres")
             MoviesGenre(withGenres = withGenres!!, navHostController = navHostController)
         }
 
-        composable(NavigationItem.MoviesDetail.route, arguments = listOf(navArgument("movieId"){type = NavType.StringType})){
-            val movieId  = it.arguments?.getString("movieId")?.toInt()
+        composable(
+            NavigationItem.MoviesDetail.route,
+            arguments = listOf(navArgument("movieId") { type = NavType.StringType })
+        ) {
+            val movieId = it.arguments?.getString("movieId")?.toInt()
             MoviesDetail(movieId = movieId!!, navHostController = navHostController)
         }
 
-        composable(NavigationItem.MoviesReviews.route, arguments = listOf(navArgument("movieId"){type = NavType.StringType})){
-            val movieId  = it.arguments?.getString("movieId")?.toInt()
+        composable(
+            NavigationItem.MoviesReviews.route,
+            arguments = listOf(navArgument("movieId") { type = NavType.StringType })
+        ) {
+            val movieId = it.arguments?.getString("movieId")?.toInt()
             MoviesReviews(movieId = movieId!!)
         }
     }
