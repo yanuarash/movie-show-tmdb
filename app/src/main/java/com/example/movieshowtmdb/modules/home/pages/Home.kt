@@ -3,6 +3,7 @@ package com.example.movieshowtmdb.modules.home.pages
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -17,11 +18,12 @@ import androidx.compose.material3.Snackbar
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.example.movieshowtmdb.composable.CircularLoading
 import com.example.movieshowtmdb.modules.home.viewmodel.HomeViewModel
 import com.example.movieshowtmdb.ui.theme.Purple40
 import com.example.movieshowtmdb.ui.theme.Purple80
@@ -36,17 +38,24 @@ fun Home(viewModel: HomeViewModel = getViewModel(), navHostController: NavHostCo
     Scaffold(topBar = {
         TopAppBar(title = { Text(text = "Genre") })
     }) { paddingValues ->
-        Box(modifier = Modifier.padding(paddingValues)) {
-            if (genreList != null) {
+        Box(
+            modifier = Modifier
+                .padding(paddingValues)
+                .fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            if (genresState.isLoading) {
+                CircularLoading()
+            } else if (genreList != null && !genresState.isLoading) {
                 Column {
                     LazyVerticalGrid(
                         columns = GridCells.Fixed(2)
                     ) {
                         items(genreList) { item ->
-                            Card(
-                                colors = CardDefaults.cardColors(
-                                    containerColor = Purple80,
-                                ), modifier = Modifier
+                            Card(colors = CardDefaults.cardColors(
+                                containerColor = Purple80,
+                            ),
+                                modifier = Modifier
                                     .fillMaxWidth()
                                     .padding(8.dp)
                                     .height(90.dp)

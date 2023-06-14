@@ -39,6 +39,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
+import com.example.movieshowtmdb.composable.CircularLoading
 import com.example.movieshowtmdb.modules.movies_genre.viewmodel.MoviesGenreViewModel
 import com.example.movieshowtmdb.util.Constants
 import org.koin.androidx.compose.getViewModel
@@ -154,13 +155,7 @@ fun MoviesGenre(
                     Text(text = movieGenreState.error)
                 }
             } else {
-                CircularProgressIndicator(
-                    modifier = Modifier
-                        .size(size = 40.dp)
-                        .padding(all = 8.dp),
-                    color = Color.Magenta,
-                    strokeWidth = 6.dp
-                )
+                CircularLoading()
             }
         }
     }
