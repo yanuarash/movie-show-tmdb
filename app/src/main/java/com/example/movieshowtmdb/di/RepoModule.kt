@@ -14,6 +14,7 @@ import com.example.movieshowtmdb.modules.home.usecase.GenresUseCase
 import com.example.movieshowtmdb.modules.movies_detail.usecase.MoviesDetailUseCase
 import com.example.movieshowtmdb.modules.movies_genre.usecase.MoviesGenreUseCase
 import com.example.movieshowtmdb.modules.movies_reviews.usecase.MoviesReviewsUseCase
+import com.example.movieshowtmdb.modules.movies_videos.usecase.MoviesVideosUseCase
 import org.koin.dsl.module
 
 val repoModule = module {
