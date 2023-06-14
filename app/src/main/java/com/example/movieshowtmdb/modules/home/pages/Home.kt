@@ -23,6 +23,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.movieshowtmdb.modules.home.viewmodel.HomeViewModel
+import com.example.movieshowtmdb.ui.theme.Purple40
+import com.example.movieshowtmdb.ui.theme.Purple80
 import org.koin.androidx.compose.getViewModel
 
 @ExperimentalMaterial3Api
@@ -43,7 +45,7 @@ fun Home(viewModel: HomeViewModel = getViewModel(), navHostController: NavHostCo
                         items(genreList) { item ->
                             Card(
                                 colors = CardDefaults.cardColors(
-                                    containerColor = Color.DarkGray,
+                                    containerColor = Purple80,
                                 ), modifier = Modifier
                                     .fillMaxWidth()
                                     .padding(8.dp)
@@ -54,7 +56,8 @@ fun Home(viewModel: HomeViewModel = getViewModel(), navHostController: NavHostCo
                                 Text(
                                     text = item.name,
                                     fontSize = 20.sp,
-                                    modifier = Modifier.padding(all = 8.dp)
+                                    modifier = Modifier.padding(all = 8.dp),
+                                    color = Purple40
                                 )
                             }
                         }
