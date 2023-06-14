@@ -12,4 +12,13 @@ interface ApiService {
         @Query("api_key") apiKey: String = Constants.API_KEY,
         @Query("language") language: String,
     ): Response<Genres>
+
+    @GET("discover/movie")
+    suspend fun getMoviesGenre(
+        @Query("api_key") apiKey: String = Constants.API_KEY,
+        @Query("language") language: String,
+        @Query("sort_by") sortBy: String,
+        @Query("page") page: Int,
+        @Query("with_genres") withGenres: String,
+    ): Response<MoviesGenre>
 }
