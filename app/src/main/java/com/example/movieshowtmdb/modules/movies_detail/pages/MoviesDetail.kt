@@ -59,7 +59,10 @@ fun MoviesDetail(
         Column(
             modifier = Modifier
                 .padding(paddingValues)
-                .verticalScroll(rememberScrollState())
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState()),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             if (moviesState.isLoading) {
                 CircularLoading()
@@ -94,7 +97,7 @@ fun MoviesDetail(
                         if (moviesDetail.tagline.isNotEmpty()) {
                             Text(
                                 text = moviesDetail.tagline,
-                                color = Color.LightGray,
+                                color = Color.DarkGray,
                                 textAlign = TextAlign.Center
                             )
                         }
