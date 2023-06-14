@@ -1,9 +1,11 @@
 package com.example.kotlintesttmdb.network
 
 import com.example.kotlintesttmdb.models.*
+import com.example.movieshowtmdb.modules.movies_detail.models.MoviesDetail
 import com.example.movieshowtmdb.util.Constants
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiService {
@@ -21,4 +23,10 @@ interface ApiService {
         @Query("page") page: Int,
         @Query("with_genres") withGenres: String,
     ): Response<MoviesGenre>
+
+    @GET("movie/{movie_id}")
+    suspend fun getMoviesDetail(
+        @Path("movie_id") movieId: Int,
+        @Query("api_key") apiKey: String = Constants.API_KEY,
+    ): Response<MoviesDetail>
 }
