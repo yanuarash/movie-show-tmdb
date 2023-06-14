@@ -12,6 +12,7 @@ import com.example.kotlintesttmdb.navigation.NavigationItem
 import com.example.movieshowtmdb.modules.home.pages.Home
 import com.example.movieshowtmdb.modules.movies_detail.pages.MoviesDetail
 import com.example.movieshowtmdb.modules.movies_genre.pages.MoviesGenre
+import com.example.movieshowtmdb.modules.movies_reviews.pages.MoviesReviews
 
 @ExperimentalMaterial3Api
 @ExperimentalFoundationApi
@@ -30,6 +31,11 @@ fun NavigationPages(navHostController: NavHostController){
         composable(NavigationItem.MoviesDetail.route, arguments = listOf(navArgument("movieId"){type = NavType.StringType})){
             val movieId  = it.arguments?.getString("movieId")?.toInt()
             MoviesDetail(movieId = movieId!!, navHostController = navHostController)
+        }
+
+        composable(NavigationItem.MoviesReviews.route, arguments = listOf(navArgument("movieId"){type = NavType.StringType})){
+            val movieId  = it.arguments?.getString("movieId")?.toInt()
+            MoviesReviews(movieId = movieId!!)
         }
     }
 }
